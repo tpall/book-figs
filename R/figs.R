@@ -48,16 +48,15 @@ text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
 
 
-# Fig 2 -------------------------------------------------------------------
+# @knitr Fig2 -------------------------------------------------------------------
 
 curve(dnorm(x), 
       xlim = c(-3, 3), 
       ylab = NA, 
       xlab = NA,
-      main = "Normal Density",
       axes = FALSE)
 qq <- round(qnorm(c(0.025, 0.975)), 2)
-axis(side = 1, at = qq, pos = 0) # Kas tavalise fondiga või italicus?
+axis(side = 1, at = qq, pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
@@ -72,20 +71,19 @@ loc <- par("usr")
 text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
 
-# Fig 3 -------------------------------------------------------------------
+# @knitr Fig3 -------------------------------------------------------------------
 
-# library(latex2exp)
+# two-tailed
 curve(dnorm(x), 
       xlim = c(-3, 3), 
       ylab = NA, 
       xlab = NA,
-      main = "Normal Density",
       axes = FALSE)
 qq <- round(qnorm(c(0.025, 0.975)), 2)
 axis(side = 1, 
      at = qq, 
      labels =  c(expression(italic("-t")), expression(italic("t"))), 
-     pos = 0) # Kas tavalise fondiga või italicus?
+     pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
@@ -105,17 +103,15 @@ curve(dnorm(x),
       xlim = c(-3, 3), 
       ylab = NA, 
       xlab = NA,
-      main = "Normal Density",
       axes = FALSE)
 qq <- round(qnorm(0.95), 2)
 axis(side = 1, 
      at = qq, 
      labels =  c(expression(italic("t"))), 
-     pos = 0) # Kas tavalise fondiga või italicus?
+     pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
-## code below needs customisation
 coord.x <- c(qq, seq(qq, 3, 0.01), 3)
 coord.y <- c(0, dnorm(seq(qq, 3, 0.01)), 0)
 polygon(coord.x, coord.y, col = fillcolor, border = NA, density = NA)
@@ -130,13 +126,12 @@ curve(dnorm(x),
       xlim = c(-3, 3), 
       ylab = NA, 
       xlab = NA,
-      main = "Normal Density",
       axes = FALSE)
 qq <- round(qnorm(0.05), 2)
 axis(side = 1, 
      at = qq, 
      labels =  c(expression(italic("-t"))), 
-     pos = 0) # Kas tavalise fondiga või italicus?
+     pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
@@ -148,7 +143,7 @@ loc <- par("usr")
 text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
 
-# Fig 4 -------------------------------------------------------------------
+# @knitr Fig4 -------------------------------------------------------------------
 
 ## left
 df <- 4
@@ -157,13 +152,12 @@ curve(dchisq(x, df = df, ncp = ncp),
       xlim = c(0, 30),
       ylab = NA, 
       xlab = NA,
-      main = "Chi-Squared Density",
       axes = FALSE)
 qq <- round(qchisq(0.05, df = df, ncp = ncp), 2)
 axis(side = 1, 
      at = qq, 
      labels =  c(expression(italic("t"))), 
-     pos = 0) # Kas tavalise fondiga või italicus?
+     pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dchisq(qq, df = df, ncp = ncp), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
@@ -179,13 +173,12 @@ curve(dchisq(x, df = df, ncp = ncp),
       xlim = c(0, 30),
       ylab = NA, 
       xlab = NA,
-      main = "Chi-Squared Density",
       axes = FALSE)
 qq <- round(qchisq(0.95, df = df, ncp = ncp), 2)
 axis(side = 1, 
      at = qq, 
      labels =  c(expression(italic("t"))), 
-     pos = 0) # Kas tavalise fondiga või italicus?
+     pos = 0) 
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dchisq(qq, df = df, ncp = ncp), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
@@ -197,20 +190,19 @@ text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
 
 
-# Fig 5 -------------------------------------------------------------------
+# @knitr Fig5 -------------------------------------------------------------------
 
 ## Two-tailed
 curve(dnorm(x), 
       xlim = c(-3, 3), 
       ylab = NA, 
       xlab = NA,
-      main = "Normal Density",
       axes = FALSE)
 qq <- round(qnorm(c(0.025, 0.975)), 2)
 axis(side = 1, 
      at = qq, 
      labels =  parse(text = c("-t[crit]", "t[crit]")), 
-     pos = 0) # Kas tavalise fondiga või italicus?
+     pos = 0) 
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
@@ -231,13 +223,12 @@ curve(dnorm(x),
       xlim = c(-3, 3), 
       ylab = NA, 
       xlab = NA,
-      main = "Normal Density",
       axes = FALSE)
 qq <- round(qnorm(0.95), 2)
 axis(side = 1, 
      at = qq, 
      labels =  parse(text = c("t[crit]")), 
-     pos = 0) # Kas tavalise fondiga või italicus?
+     pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
@@ -255,13 +246,12 @@ curve(dnorm(x),
       xlim = c(-3, 3), 
       ylab = NA, 
       xlab = NA,
-      main = "Normal Density",
       axes = FALSE)
 qq <- round(qnorm(0.05), 2)
 axis(side = 1, 
      at = qq, 
      labels =  parse(text = c("-t[crit]")), 
-     pos = 0) # Kas tavalise fondiga või italicus?
+     pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
@@ -274,7 +264,7 @@ loc <- par("usr")
 text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
 
-# Fig 6 -------------------------------------------------------------------
+# @knitr Fig6 -------------------------------------------------------------------
 
 df <- 5
 ncp <- 0
@@ -282,19 +272,15 @@ curve(dchisq(x, df = df, ncp = ncp),
       xlim = c(0, 30),
       ylab = NA, 
       xlab = NA,
-      main = parse(text = "Chi^2*(5)"),
       axes = FALSE)
 qq <- round(qchisq(c(0.708, 0.95), df = df, ncp = ncp), 2)
 axis(side = 1, 
      at = qq, 
      labels =  qq, 
-     pos = 0) # Kas tavalise fondiga või italicus?
+     pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dchisq(qq, df = df, ncp = ncp), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
-coord.x <- c(qq, seq(qq, 30, 0.01), 30)
-coord.y <- c(0, dchisq(seq(qq, 30, 0.01), df = df, ncp = ncp), 0)
-polygon(coord.x, coord.y, col = 'gray90', border = NA, density = NA)
 loc <- par("usr")
 text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
