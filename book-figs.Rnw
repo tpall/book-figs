@@ -1,0 +1,19 @@
+\documentclass{article}
+
+\begin{document}
+
+<<read-chunks>>=
+knitr::read_chunk("R/figs.R")
+@
+
+
+<<fig1, fig.cap="Kvantiili definitsioon. Rayleigh jaotus.", fig.show='hold'>>=
+
+@
+
+<<fig2>>=
+
+@
+
+
+\end{document}

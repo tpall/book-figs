@@ -1,7 +1,9 @@
 
+# @knitr setup
+
 fillcolor <- "gray90"
 
-# Fig 1 -------------------------------------------------------------------
+# @knitr Fig1 -------------------------------------------------------------------
 
 library(VGAM)
 
@@ -11,7 +13,6 @@ curve(drayleigh(x, Scale),
       xlim = c(0, 1.2), 
       ylab = NA, 
       xlab = NA,
-      main = "Rayleigh Density",
       axes = FALSE)
 qq <- qrayleigh(0.2, scale = Scale)
 axis(side = 1, at = qq, labels = parse(text = "italic(x[alpha])"), pos = 0)
@@ -32,7 +33,6 @@ curve(drayleigh(x, Scale),
       xlim = c(0, 1.2), 
       ylab = NA, 
       xlab = NA,
-      main = "Rayleigh Density",
       axes = FALSE)
 qq <- qrayleigh(0.2, scale = Scale)
 axis(side = 1, at = qq, labels = expression(italic("x")), pos = 0) # Kas tavalise fondiga või italicus?
@@ -74,6 +74,7 @@ text(loc[2], loc[3], "x", pos = 4, xpd = T)
 
 # Fig 3 -------------------------------------------------------------------
 
+# library(latex2exp)
 curve(dnorm(x), 
       xlim = c(-3, 3), 
       ylab = NA, 
