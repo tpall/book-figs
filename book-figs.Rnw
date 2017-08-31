@@ -1,7 +1,6 @@
 \documentclass{article}
 \usepackage{float}    % for fig.pos='H'
 \usepackage{rotfloat} % for sidewaysfigure
-\usepackage[utf8]{inputenc}
 \usepackage{subcaption}  % an alternative package for sub figures
 \newcommand{\subfloat}[2][need a sub-caption]{\subcaptionbox{#1}{#2}}
 
