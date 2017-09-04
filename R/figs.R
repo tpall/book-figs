@@ -83,6 +83,7 @@ dev.off()
 
 # two-tailed
 cairo_ps("figs/Taavi3_two-tailed.eps", width = 4, height = 2.76, pointsize = 12)
+par(mar = c(2,2,2,2))
 curve(dnorm(x), 
       xlim = c(-3, 3), 
       ylab = NA, 
@@ -93,8 +94,8 @@ axis(side = 1,
      at = qq, 
      labels =  c(expression(italic("-t")), expression(italic("t"))), 
      pos = 0)
-axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
+arrows(0, 0, 0, 5, lwd = 1, length = 0.15)
 abline(h = 0, lty = 1)
 coord.x <- c(-3, seq(-3, qq[1], 0.01), qq[1])
 coord.y <- c(0, dnorm(seq(-3, qq[1], 0.01)), 0)
@@ -104,12 +105,13 @@ coord.y <- c(0, dnorm(seq(qq[2], 3, 0.01)), 0)
 polygon(coord.x, coord.y, col = fillcolor, border = NA, density = NA)
 text(qnorm(c(0.025, 0.975)), y = 0.021, labels = parse(text = "H[t]"), pos = c(2,4)) # U+1D4D7
 loc <- par("usr")
-text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
+text(0, dnorm(0)+0.02, "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
 dev.off()
 
 ## Right
 cairo_ps("figs/Taavi3_right-tailed.eps", width = 4, height = 2.76, pointsize = 12)
+par(mar = c(2,2,2,2))
 curve(dnorm(x), 
       xlim = c(-3, 3), 
       ylab = NA, 
@@ -120,20 +122,21 @@ axis(side = 1,
      at = qq, 
      labels =  c(expression(italic("t"))), 
      pos = 0)
-axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
+arrows(0, 0, 0, 5, lwd = 1, length = 0.15)
 abline(h = 0, lty = 1)
 coord.x <- c(qq, seq(qq, 3, 0.01), 3)
 coord.y <- c(0, dnorm(seq(qq, 3, 0.01)), 0)
 polygon(coord.x, coord.y, col = fillcolor, border = NA, density = NA)
 text(qnorm(0.95), y = 0.022, labels = parse(text = "H[t]"), pos = 4) # U+1D4D7
 loc <- par("usr")
-text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
+text(0, dnorm(0)+0.02, "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
 dev.off()
 
 ## Left
 cairo_ps("figs/Taavi3_left-tailed.eps", width = 4, height = 2.76, pointsize = 12)
+par(mar = c(2,2,2,2))
 curve(dnorm(x), 
       xlim = c(-3, 3), 
       ylab = NA, 
@@ -144,15 +147,15 @@ axis(side = 1,
      at = qq, 
      labels =  c(expression(italic("-t"))), 
      pos = 0)
-axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, dnorm(qq), lty = 3, type = "h", lwd = 2)
+arrows(0, 0, 0, 5, lwd = 1, length = 0.15)
 abline(h = 0, lty = 1)
 coord.x <- c(-3, seq(-3, qq, 0.01), qq)
 coord.y <- c(0, dnorm(seq(-3, qq, 0.01)), 0)
 polygon(coord.x, coord.y, col = 'gray90', border = NA, density = NA)
 text(qnorm(0.05), y = 0.022, labels = parse(text = "H[t]"), pos = 2) # U+1D4D7
 loc <- par("usr")
-text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
+text(0, dnorm(0)+0.02, "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
 dev.off()
 
