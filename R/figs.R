@@ -79,12 +79,6 @@ text(0, dnorm(0)+0.02, "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
 dev.off()
 
-curve(dnorm(x), 
-      xlim = c(-3, 3), 
-      ylab = NA, 
-      xlab = NA)
-
-
 # @knitr Fig3 -------------------------------------------------------------------
 
 # two-tailed
@@ -300,7 +294,7 @@ dev.off()
 
 df <- 5
 ncp <- 0
-cairo_ps("figs/Taavi6.eps", width = 4, height = 2.76, pointsize = 12)
+cairo_ps("figs/Taavi6.eps", width = 5, height = 2.76, pointsize = 12)
 par(mar=c(2,2,2,2))
 curve(dchisq(x, df = df, ncp = ncp), 
       xlim = c(0, 30),
@@ -318,6 +312,7 @@ abline(h = 0, lty = 1)
 coord.x <- c(qq[2], seq(qq[2], 30, 0.01), 30)
 coord.y <- c(0, dchisq(seq(qq[2], 30, 0.01), df = df, ncp = ncp), 0)
 polygon(coord.x, coord.y, col = 'gray90', border = NA, density = NA)
+text(qchisq(0.97, df = df, ncp = ncp), y = 0.013, labels = parse(text = "H[t]"), pos = 1)
 loc <- par("usr")
 text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
