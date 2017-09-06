@@ -14,6 +14,8 @@ lapply(texfiles, tools::texi2dvi, clean = T, pdf = T)
 pdfiles <- list.files(pattern = "pdf")
 
 #' Function to wrap dvips
+#' Downloaded and installed xpdf Mac 32/64-bit from 
+#' http://www.xpdfreader.com/download.html
 pdf2psr <- function(x) {
   x <- sub("\\.pdf", "", x)
   system(sprintf("pdftops -eps %s.pdf %s.eps", x, x))
