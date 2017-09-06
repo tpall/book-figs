@@ -305,17 +305,19 @@ curve(dchisq(x, df = df, ncp = ncp),
       xlab = NA,
       axes = FALSE)
 qq <- round(qchisq(c(0.708, 0.95), df = df, ncp = ncp), 2)
+coord.x <- c(qq[1], seq(qq[1], 30, 0.01), 30)
+coord.y <- c(0, dchisq(seq(qq[1], 30, 0.01), df = df, ncp = ncp), 0)
+polygon(coord.x, coord.y, col = 'gray90', border = NA, density = NA)
+text(qchisq(mean(c(0.708, 0.95)), df = df, ncp = ncp)+0.8, 
+     y = dchisq(mean(c(0.708, 0.95)), df = df, ncp = ncp)/3.2, 
+     labels = round(1-0.708, 2))
 axis(side = 1, 
      at = qq, 
      labels =  qq, 
      pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
-lines(qq, dchisq(qq, df = df, ncp = ncp), lty = 3, type = "h", lwd = 2)
 abline(h = 0, lty = 1)
-coord.x <- c(qq[2], seq(qq[2], 30, 0.01), 30)
-coord.y <- c(0, dchisq(seq(qq[2], 30, 0.01), df = df, ncp = ncp), 0)
-polygon(coord.x, coord.y, col = 'gray90', border = NA, density = NA)
-text(qchisq(0.97, df = df, ncp = ncp), y = 0.013, labels = parse(text = "H[t]"), pos = 1)
+lines(qq, dchisq(qq, df = df, ncp = ncp), lty = 3, type = "h", lwd = 2)
 loc <- par("usr")
 text(loc[1], loc[4], "f(x)", pos = 2, xpd = T)
 text(loc[2], loc[3], "x", pos = 4, xpd = T)
