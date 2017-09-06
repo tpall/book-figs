@@ -349,5 +349,3 @@ loc <- par("usr")
 text(loc[1], loc[4], "$f(x)$", pos = 2, xpd = T)
 text(loc[2], loc[3], "$x$", pos = 4, xpd = T)
 dev.off()
-
-# tools::texi2dvi("figs/Taavi6.tex", clean = T)
