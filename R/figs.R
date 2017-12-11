@@ -9,7 +9,7 @@ library(VGAM)
 
 ## Variant A
 
-cairo_ps("figs/Taavi1a.eps", width = 4, height = 2.76, pointsize = 12)
+svg("figs/Taavi1a.svg", width = 4, height = 2.76, pointsize = 12)
 Scale <- 0.3
 par(mar = rep(2, 4))
 plot.new()
@@ -23,7 +23,7 @@ curve(drayleigh(x, Scale),
       ylab = NA, 
       xlab = NA,
       add = T)
-text(c(0.12, 0.45), y = 0.4, c(expression(alpha), expression(1-alpha)))
+text(c(0.12, 0.45), y = 0.4, c(expression(alpha), expression(1 - alpha)))
 axis(side = 1, at = qq, labels = expression(x[alpha]), pos = 0)
 axis(side = 2, labels = NA, lwd.ticks = 0)
 lines(qq, drayleigh(qq, scale = Scale), lty = 3, type = "h")
@@ -34,7 +34,7 @@ text(loc[2], loc[3], expression(x), pos = 4, xpd = T)
 dev.off()
 
 ## Variant B
-cairo_ps("figs/Taavi1b.eps", width = 4, height = 2.76, pointsize = 12)
+svg("figs/Taavi1b.svg", width = 4, height = 2.76, pointsize = 12)
 par(mar = rep(2, 4))
 plot.new()
 plot.window(xlim = c(0, 1.2), ylim = c(0, 2))
@@ -59,7 +59,7 @@ dev.off()
 
 # @knitr Fig2 -------------------------------------------------------------------
 
-cairo_ps("figs/Taavi2.eps", width = 4, height = 2.76, pointsize = 12)
+svg("figs/Taavi2.svg", width = 4, height = 2.76, pointsize = 12)
 par(mar = rep(2, 4))
 plot.new()
 plot.window(xlim = c(-3, 3), ylim = c(0, .4))
@@ -81,14 +81,14 @@ lines(qq, dnorm(qq), lty = 3, type = "h")
 arrows(0, 0, 0, 5, lwd = 1, length = 0.15)
 abline(h = 0, lty = 1)
 loc <- par("usr")
-text(0, dnorm(0)+0.02, expression(f(x)), pos = 2, xpd = T)
+text(0, dnorm(0) + 0.02, expression(f(x)), pos = 2, xpd = T)
 text(loc[2], loc[3], expression(x), pos = 4, xpd = T)
 dev.off()
 
 # @knitr Fig3 -------------------------------------------------------------------
 
 # two-tailed
-cairo_ps("figs/Taavi3_two-tailed.eps", width = 4, height = 2.76, pointsize = 12)
+svg("figs/Taavi3_two-tailed.svg", width = 4, height = 2.76, pointsize = 12)
 par(mar = rep(2, 4))
 plot.new()
 plot.window(xlim = c(-3, 3), ylim = c(0, .4))
@@ -101,7 +101,7 @@ coord.y <- c(0, dnorm(seq(qq[2], 3, 0.01)), 0)
 polygon(coord.x, coord.y, col = fillcolor, border = NA, density = NA)
 text(qnorm(c(0.025, 0.975)), y = 0.017, 
      labels = expression(p), 
-     pos = c(2,4)) # U+1D4D7
+     pos = c(2, 4)) # U+1D4D7
 axis(side = 1, 
      at = qq, 
      labels =  c(expression(-t), expression(t)), 
@@ -116,12 +116,12 @@ curve(dnorm(x),
       xlab = NA,
       add = T)
 loc <- par("usr")
-text(0, dnorm(0)+0.02, expression(f(x)), pos = 2, xpd = T)
+text(0, dnorm(0) + 0.02, expression(f(x)), pos = 2, xpd = T)
 text(loc[2], loc[3], expression(x), pos = 4, xpd = T)
 dev.off()
 
 ## Right
-cairo_ps("figs/Taavi3_right-tailed.eps", width = 4, height = 2.76, pointsize = 12)
+svg("figs/Taavi3_right-tailed.svg", width = 4, height = 2.76, pointsize = 12)
 par(mar = rep(2, 4))
 plot.new()
 plot.window(xlim = c(-3, 3), ylim = c(0, .4))
@@ -143,12 +143,12 @@ curve(dnorm(x),
       xlab = NA,
       add = T)
 loc <- par("usr")
-text(0, dnorm(0)+0.02, expression(f(x)), pos = 2, xpd = T)
+text(0, dnorm(0) + 0.02, expression(f(x)), pos = 2, xpd = T)
 text(loc[2], loc[3], expression(x), pos = 4, xpd = T)
 dev.off()
 
 ## Left
-cairo_ps("figs/Taavi3_left-tailed.eps", width = 4, height = 2.76, pointsize = 12)
+svg("figs/Taavi3_left-tailed.svg", width = 4, height = 2.76, pointsize = 12)
 par(mar = rep(2, 4))
 plot.new()
 plot.window(xlim = c(-3, 3), ylim = c(0, .4))
@@ -170,14 +170,14 @@ curve(dnorm(x),
       xlab = NA,
       add = T)
 loc <- par("usr")
-text(0, dnorm(0)+0.02, expression(f(x)), pos = 2, xpd = T)
+text(0, dnorm(0) + 0.02, expression(f(x)), pos = 2, xpd = T)
 text(loc[2], loc[3], expression(x), pos = 4, xpd = T)
 dev.off()
 
 # @knitr Fig4 -------------------------------------------------------------------
 
 ## left
-cairo_ps("figs/Taavi4_left.eps", width = 4, height = 2.76, pointsize = 12)
+svg("figs/Taavi4_left.svg", width = 4, height = 2.76, pointsize = 12)
 par(mar = rep(2, 4))
 plot.new()
 plot.window(xlim = c(0, 30), ylim = c(0, .1))
@@ -206,7 +206,7 @@ text(loc[2], loc[3], expression(x), pos = 4, xpd = T)
 dev.off()
 
 ## right
-cairo_ps("figs/Taavi4_right.eps", width = 4, height = 2.76, pointsize = 12)
+svg("figs/Taavi4_right.svg", width = 4, height = 2.76, pointsize = 12)
 par(mar = rep(2, 4))
 plot.new()
 plot.window(xlim = c(0, 30), ylim = c(0, .1))
@@ -234,7 +234,7 @@ dev.off()
 
 # @knitr Fig6 -------------------------------------------------------------------
 
-cairo_ps("figs/Taavi6.eps", width = 5, height = 2.76, pointsize = 12)
+svg("figs/Taavi6.svg", width = 5, height = 2.76, pointsize = 12)
 df <- 5
 ncp <- 0
 par(mar = rep(2, 4))
@@ -244,9 +244,9 @@ qq <- round(qchisq(c(0.708, 0.95), df = df, ncp = ncp), 2)
 coord.x <- c(qq[1], seq(qq[1], 20, 0.01), 20)
 coord.y <- c(0, dchisq(seq(qq[1], 20, 0.01), df = df, ncp = ncp), 0)
 polygon(coord.x, coord.y, col = 'gray90', border = NA, density = NA)
-text(qchisq(mean(c(0.708, 0.95)), df = df, ncp = ncp)+0.8, 
+text(qchisq(mean(c(0.708, 0.95)), df = df, ncp = ncp) + 0.8, 
      y = dchisq(mean(c(0.708, 0.95)), df = df, ncp = ncp)/3.2, 
-     labels = round(1-0.708, 2))
+     labels = round(1 - 0.708, 2))
 axis(side = 1, 
      at = qq, 
      labels =  qq, 

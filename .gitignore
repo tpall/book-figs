@@ -5,5 +5,5 @@
 *.pdf
 *.tex
 *.log
+*.eps
 *.gz
-figs
